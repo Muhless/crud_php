@@ -33,7 +33,37 @@
     </nav>
   </div>
 
-  <h1>Data Barang</h1>
+  <div class="container mt-3">
+    <h1>Data Barang</h1>
+    <hr>
+    <button class="btn btn-primary">Tambah Data</button>
+  </div>
+
+  <div class="container mt-3">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Jumlah</th>
+        <th>Harga</th>
+        <th>Tanggal</th>
+        <th>Aksi</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Monitor</td>
+          <td>1</td>
+          <td>1000000</td>
+          <td>17/7/2022</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
 
