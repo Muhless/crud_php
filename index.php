@@ -57,7 +57,7 @@ $data_barang = select("SELECT * FROM barang");
   <div class="container mt-3">
     <h1>Data Barang</h1>
     <hr>
-    <button class="btn btn-primary">Tambah Data</button>
+    <a href="form-tambah.php" class="btn btn-primary">Tambah Data</a>
   </div>
 
   <div class="container mt-4">
@@ -78,7 +78,7 @@ $data_barang = select("SELECT * FROM barang");
             <td><?php echo $no++ ?></td>
             <td><?php echo $barang['nama'];?></td>
             <td><?php echo $barang['jumlah'];?></td>
-            <td><?php echo $barang['harga'];?></td>
+            <td>Rp. <?php echo number_format($barang['harga'], 0,',',',') ;?></td>
             <td><?php echo date ("Y-m-d | H:i:s", strtotime($barang['tanggal'])); ?></td>
             <td style="width:15%" class="text-center">
               <a href="" class="btn btn-success">Ubah</a>
