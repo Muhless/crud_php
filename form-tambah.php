@@ -1,5 +1,17 @@
 <?php
-include "layout/header.php"
+include "layout/header.php";
+
+if(isset($_POST('tambah'))){
+    if (create_barang($_POST) > 0) {
+        echo "<script>
+        alert('Data barang berhasil ditambahkan');
+        document.location.href = 'index.php';</script>";
+    } else {
+        echo "<script>
+        alert('Data barang gagal ditambahkan');
+        document.location.href = 'index.php';</script>";
+    }
+}
 
 ?>
 
@@ -24,7 +36,7 @@ include "layout/header.php"
             <input required type="number" class="form-control" id="harga" name=" harga" placeholder="Harga Barang...">
         </div>
 
-        <button type="button" name="tambah" class="btn btn-primary">Tambah</button>
+        <button type="button" name="tambah" class="btn btn-primary" style="float: right;">Tambah</button>
 
     </form>
 
