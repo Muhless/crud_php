@@ -1,3 +1,24 @@
+<?php
+
+include "database.php";
+
+function select($query)
+{
+  global $db;
+
+  $result = mysqli_query($db, $query);
+  $rows = [];
+
+
+  while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+  return $rows;
+}
+
+$data_barang = select("SELECT * FROM barang");
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,7 +60,7 @@
     <button class="btn btn-primary">Tambah Data</button>
   </div>
 
-  <div class="container mt-3">
+  <div class="container mt-4">
     <table class="table table-bordered table-striped table-hover">
       <thead>
         <th>No</th>
@@ -49,18 +70,24 @@
         <th>Tanggal</th>
         <th>Aksi</th>
       </thead>
+
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Monitor</td>
-          <td>1</td>
-          <td>1000000</td>
-          <td>17/7/2022</td>
-          <td></td>
-        </tr>
+        <?php $no = 1 ?>
+        <?php foreach ($data_barang as $barang) : ?>
+          <tr>
+            <td><?php echo $no++ ?></td>
+            <td><?php echo $barang['nama'];?></td>
+            <td><?php echo $barang['jumlah'];?></td>
+            <td><?php echo $barang['harga'];?></td>
+            <td><?php echo date ("Y-m-d | H:i:s", strtotime($barang['tanggal'])); ?></td>
+            <td style="width:15%" class="text-center">
+              <a href="" class="btn btn-success">Ubah</a>
+              <a href="" class="btn btn-danger">Hapus</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
-
   </div>
 
 
