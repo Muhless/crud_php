@@ -1,7 +1,7 @@
 <?php
 include "layout/header.php";
 
-if(isset($_POST('tambah'))){
+if(isset($_POST['tambah'])){
     if (create_barang($_POST) > 0) {
         echo "<script>
         alert('Data barang berhasil ditambahkan');
@@ -19,24 +19,24 @@ if(isset($_POST('tambah'))){
     <h1>Tambah Barang</h1>
     <hr>
 
-    <form action="">
+    <form action="" method="post">
 
         <div class="mb-3">
             <label for="nama" class="form-label">Nama Barang</label>
-            <input required type="text" class="form-control" id="nama" name=" nama" placeholder="Nama Barang...">
+            <input type="text" class="form-control" id="nama" name=" nama" placeholder="Nama Barang..." required> 
         </div>
 
         <div class="mb-3">
             <label for="jumlah" class="form-label">Jumlah</label>
-            <input required type="number" class="form-control" id="jumlah" name=" jumlah" placeholder="Jumlah Barang...">
+            <input type="number" class="form-control" id="jumlah" name=" jumlah" placeholder="Jumlah Barang..." required>
         </div>
 
         <div class="mb-3">
             <label for="harga" class="form-label">Harga</label>
-            <input required type="number" class="form-control" id="harga" name=" harga" placeholder="Harga Barang...">
+            <input type="number" class="form-control" id="harga" name=" harga" placeholder="Harga Barang..." required>
         </div>
 
-        <button type="button" name="tambah" class="btn btn-primary" style="float: right;">Tambah</button>
+        <button type="submit" name="tambah" class="btn btn-primary" style="float: right;">Tambah</button>
 
     </form>
 

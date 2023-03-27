@@ -2,7 +2,7 @@
 
 include "layout/header.php";
 
-$data_barang = select("SELECT * FROM barang");
+$data_barang = select("SELECT * FROM barang ORDER BY id_barang ASC");
 
 ?>
 
@@ -11,7 +11,7 @@ $data_barang = select("SELECT * FROM barang");
   <hr>
   <a href="form-tambah.php" class="btn btn-primary mb-3">Tambah Data</a>
 
-  <table class="table table-bordered table-striped table-hover">
+  <table class="table table-bordered table-striped table-hover" id="table">
     <thead>
       <th>No</th>
       <th>Nama</th>
@@ -31,18 +31,14 @@ $data_barang = select("SELECT * FROM barang");
           <td>Rp. <?php echo number_format($barang['harga'], 0, ',', ','); ?></td>
           <td><?php echo date("Y-m-d | H:i:s", strtotime($barang['tanggal'])); ?></td>
           <td style="width:15%" class="text-center">
-            <a href="" class="btn btn-success">Ubah</a>
-            <a href="" class="btn btn-danger">Hapus</a>
+            <a href="ubah-barang.php?id_barang=<?php echo $barang['id_barang'];?>" class="btn btn-success">Ubah</a>
+            <a href="hapus-barang.php?id_barang=<?php echo $barang['id_barang'];?>" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
           </td>
         </tr>
       <?php endforeach; ?>
     </tbody>
   </table>
 
-</div>
-
-<div class="container mt-4">
-  
 </div>
 
 
