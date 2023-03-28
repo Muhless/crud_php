@@ -1,3 +1,5 @@
+<title>Ubah Barang</title>
+
 <?php
 include "layout/header.php";
 

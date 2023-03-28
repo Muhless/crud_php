@@ -9,7 +9,7 @@ $data_barang = select("SELECT * FROM barang ORDER BY id_barang ASC");
 <div class="container mt-5">
   <h1>Data Barang</h1>
   <hr>
-  <a href="form-tambah.php" class="btn btn-primary mb-3">Tambah Data</a>
+  <a href="tambah-barang.php" class="btn btn-primary mb-3">Tambah Data</a>
 
   <table class="table table-bordered table-striped table-hover" id="table">
     <thead>
