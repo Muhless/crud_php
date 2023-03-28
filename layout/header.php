@@ -1,10 +1,6 @@
 <?php
 
 include "config/app.php";
-
-
-
-
 ?>
 
 <!doctype html>

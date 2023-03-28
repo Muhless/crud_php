@@ -1,9 +1,9 @@
-<title>Data Mahasiswa</title>
-
 <?php
 include "layout/header.php";
 
-$id_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa ASC");
+$title = 'Data Mahasiswa';
+
+$data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC");
 
 ?>
 
@@ -24,7 +24,7 @@ $id_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa ASC");
 
         <tbody>
             <?php $no = 1; ?>
-            <?php foreach ($id_mahasiswa as $mahasiswa) : ?>
+            <?php foreach ($data_mahasiswa as $mahasiswa) : ?>
                 <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $mahasiswa['nama']; ?></td>
@@ -32,7 +32,7 @@ $id_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa ASC");
                     <td><?php echo $mahasiswa['jenis_kelamin']; ?></td>
                     <td><?php echo $mahasiswa['telepon']; ?></td>
                     <td class="text-center" style="width: 20%;">
-                        <a href="detail-mahasiswa.php?id_mahasiswa<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-secondary btn-sm">Detail</a>
+                        <a href="detail-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-secondary btn-sm">Detail</a>
                         <a href="detail-mahasiswa.php" class="btn btn-success btn-sm">Edit</a>
                         <a href="detail-mahasiswa.php" class="btn btn-danger btn-sm">Hapus</a>
 
