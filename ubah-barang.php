@@ -1,7 +1,7 @@
-<title>Ubah Barang</title>
-
 <?php
 include "layout/header.php";
+
+$title = "Ubah Barang";
 
 $id_barang = (int)$_GET['id_barang'];
 
