@@ -65,7 +65,7 @@ if (isset($_POST['tambah'])) {
 
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
-            <input placeholder type="text" class="form-control" id="foto" name="foto">
+            <input type="file" class="form-control" id="foto" name="foto">
         </div>
 
         <button type="submit" name="tambah" class="btn btn-primary mt-3 mb-5" style="float:right">Tambah Data</button>
