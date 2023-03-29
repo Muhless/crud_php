@@ -1,7 +1,7 @@
 <?php
-include "layout/header.php";
+$title = "Form Ubah Barang";
 
-$title = "Ubah Barang";
+include "layout/header.php";
 
 $id_barang = (int)$_GET['id_barang'];
 

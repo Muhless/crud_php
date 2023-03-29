@@ -1,6 +1,5 @@
-<title>Tambah Barang</title>
-
 <?php
+$title = "Form Tambah Barang";
 
 include "layout/header.php";
 
@@ -48,5 +47,3 @@ if(isset($_POST['tambah'])){
 <?php
 include "layout/footer.php";
 ?>
-
-</div>
