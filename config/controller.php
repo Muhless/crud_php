@@ -76,7 +76,7 @@ function create_mahasiswa($post)
     $nama               = $post['nama'];
     $prodi              = $post['prodi'];
     $jenis_kelamin      = $post['jenis_kelamin'];
-    $telepon            = $post['nama'];
+    $telepon            = $post['telepon'];
     $email              = $post['email'];
     $foto               = upload_file();
 
