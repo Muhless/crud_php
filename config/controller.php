@@ -72,6 +72,7 @@ function create_mahasiswa($post)
 {
     global $db;
 
+    $id_mahasiswa       = $post['id_barang'];
     $nama               = $post['nama'];
     $prodi              = $post['prodi'];
     $jenis_kelamin      = $post['jenis_kelamin'];
@@ -91,6 +92,20 @@ function create_mahasiswa($post)
 
     return mysqli_affected_rows($db);
 }
+
+
+// fungsi delete data mahasiswa
+function delete_mahasiswa($id_mahasiswa){
+    global $db;
+
+    $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
+}
+
 
 // fungsi upload file
 function upload_file()
