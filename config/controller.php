@@ -21,9 +21,9 @@ function create_barang($post)
 {
     global $db;
 
-    $nama   = $post['nama'];
-    $jumlah = $post['jumlah'];
-    $harga  = $post['harga'];
+    $nama   = htmlspecialchars($post['nama']);
+    $jumlah = htmlspecialchars($post['jumlah']);
+    $harga  = htmlspecialchars($post['harga']);
 
     // query tambah data
     $query = "INSERT INTO barang VALUES (null, '$nama', '$jumlah', '$harga', CURRENT_TIMESTAMP())";
@@ -39,10 +39,10 @@ function update_barang($post)
 {
     global $db;
 
-    $id_barang  = $post['id_barang'];
-    $nama       = $post['nama'];
-    $jumlah     = $post['jumlah'];
-    $harga      = $post['harga'];
+    $id_barang  = strip_tags($post['id_barang']);
+    $nama       = strip_tags($post['nama']);
+    $jumlah     = strip_tags($post['jumlah']);
+    $harga      = strip_tags($post['harga']);
 
     // query ubah data
     $query = "UPDATE barang SET nama='$nama', jumlah='$jumlah', harga='$harga' WHERE id_barang = $id_barang";
