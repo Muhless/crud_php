@@ -7,10 +7,19 @@ $id_mahasiswa = (int) $_GET['id_mahasiswa'];
 
 $mahasiswa = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa")[0];
 
-if(create_mahasiswa($_POST) > 0 ){
-
+if (isset($_POST['ubah'])) {
+    if (update_mahasiswa($_POST) > 0) {
+        echo "<script>
+                alert('Data Berhasil Diubah');        
+                document.location.href = 'data-mahasiswa.php';
+            </script>";
+    } else {
+        echo "<script>
+                alert('Data Gagal Diubah';
+                document.location.href = 'data-mahasiswa.php';
+            </script>";
+    }
 }
-
 ?>
 
 <div class="container mt-5">
@@ -18,7 +27,10 @@ if(create_mahasiswa($_POST) > 0 ){
     <hr>
 
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="id_mahasiswa" value="<?php echo $mahasiswa['id_mahasiswa']; ?>">
+        <input type="hidden" name="id_mahasiswa" value="<?php echo $mahasiswa['id_mahasiswa']; ?>">
+
+        <input type="hidden" name="fotoLama" value="<?php echo $mahasiswa['foto']; ?>">
+
 
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
@@ -67,7 +79,7 @@ if(create_mahasiswa($_POST) > 0 ){
             <img src="assets/img/<?= $mahasiswa['foto'] ?>" alt="foto" width="100px">
         </div>
 
-        <button ></button>
+        <button class="btn btn-primary mb-5" name="ubah" style="float:right;">Edit</button>
     </form>
 
 
