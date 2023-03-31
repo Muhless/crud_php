@@ -34,7 +34,7 @@ function create_barang($post)
 }
 
 
-// fungsi update data
+// fungsi update data barang
 function update_barang($post)
 {
     global $db;
@@ -94,8 +94,39 @@ function create_mahasiswa($post)
 }
 
 
+// fungsi update data mahasiswa
+function update_mahasiswa($post)
+{
+    global $db;
+
+    $id_mahasiswa   = strip_tags($post['id_mahasiswa']);
+    $nama           = strip_tags($post['nama']);
+    $prodi          = strip_tags($post['prodi']);
+    $jenis_kelamin  = strip_tags($post['jenis_kelamin']);
+    $telepon        = strip_tags($post['telepon']);
+    $email          = strip_tags($post['email']);
+    $fotoLama       = strip_tags($post['fotoLama']);
+
+    // check upload foto/tidak
+    if ($_FILES['foto']['error'] == 4) {
+        $foto = $fotoLama;
+    } else {
+        $foto = upload_file();
+    }
+
+    // query ubah data mahasiswa
+    $query = "UPDATE mahasiswa SET nama = '$nama', prodi = '$prodi', jenis_kelamin = '$jenis_kelamin', telepon = '$telepon', email = '$email', foto = '$foto' WHERE id_mahasiswa = $id_mahasiswa";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+
+
 // fungsi delete data mahasiswa
-function delete_mahasiswa($id_mahasiswa){
+function delete_mahasiswa($id_mahasiswa)
+{
     global $db;
 
     $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
@@ -103,7 +134,6 @@ function delete_mahasiswa($id_mahasiswa){
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
-
 }
 
 
