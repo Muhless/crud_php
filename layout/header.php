@@ -35,7 +35,7 @@ include "config/app.php";
                             <a class="nav-link" href="data-mahasiswa.php">Mahasiswa</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">Modal</a>
+                            <a class="nav-link" href="data-modal.php">Modal</a>
                         </li>
                 </div>
             </div>
