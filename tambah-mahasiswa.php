@@ -65,16 +65,29 @@ if (isset($_POST['tambah'])) {
 
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
-            <input type="file" class="form-control" id="foto" name="foto">
+            <input type="file" class="form-control" id="foto" name="foto" onchange="previewImg()">
+
+            <img src="" alt="" class="img-thumbnail img-preview mt-3" width="100px">
         </div>
 
         <button type="submit" name="tambah" class="btn btn-primary mt-3 mb-5" style="float:right">Tambah Data</button>
-
-
     </form>
-
-
 </div>
+
+<script>
+    function previewImg() {
+        const foto = document.querySelector('#foto');
+        const imgPreview = document.querySelector('.img-preview');
+
+        const fileFoto = new FileReader();
+        fileFoto.readAsDataURL(foto.files[0]);
+
+        fileFoto.onload = function(e) {
+            imgPreview.src = e.target.result;
+        }
+    }
+</script>
+
 
 <?php
 include "layout/footer.php";

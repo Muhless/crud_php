@@ -72,18 +72,28 @@ if (isset($_POST['ubah'])) {
 
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
-            <input required type="file" class="form-control" id="foto" placeholder="foto">
-            <p>
-                <small>Gambar Sebelumnya</small>
-            </p>
-            <img src="assets/img/<?= $mahasiswa['foto'] ?>" alt="foto" width="100px">
+            <input required type="file" class="form-control" id="foto" name="foto" placeholder="foto" onchange="previewImg()">
+            
+            <img src="assets/img/<?php echo $mahasiswa['foto']; ?>" alt="" class="img-thumbnail img-preview mt-3" width="100px">
         </div>
 
-        <button class="btn btn-primary mb-5" name="ubah" style="float:right;">Edit</button>
+        <button class="btn btn-primary mb-5" name="ubah" style="float:right;">Ubah</button>
     </form>
-
-
 </div>
+
+<script>
+    function previewImg() {
+        const foto = document.querySelector('#foto');
+        const imgPreview = document.querySelector('.img-preview');
+
+        const fileFoto = new FileReader();
+        fileFoto.readAsDataURL(foto.files[0]);
+
+        fileFoto.onload = function(e){
+            imgPreview.src = e.target.result;
+        }
+    }
+</script>
 
 
 <?php

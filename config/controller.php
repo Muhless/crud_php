@@ -72,7 +72,6 @@ function create_mahasiswa($post)
 {
     global $db;
 
-    $id_mahasiswa       = $post['id_barang'];
     $nama               = $post['nama'];
     $prodi              = $post['prodi'];
     $jenis_kelamin      = $post['jenis_kelamin'];
@@ -115,7 +114,7 @@ function update_mahasiswa($post)
     }
 
     // query ubah data mahasiswa
-    $query = "UPDATE mahasiswa SET nama = '$nama', prodi = '$prodi', jenis_kelamin = '$jenis_kelamin', telepon = '$telepon', email = '$email', foto = '$foto' WHERE id_mahasiswa = $id_mahasiswa";
+    $query = "UPDATE mahasiswa SET nama='$nama', prodi='$prodi', jenis_kelamin='$jenis_kelamin', telepon='$telepon', email='$email', foto='$foto' WHERE id_mahasiswa = $id_mahasiswa";
 
     mysqli_query($db, $query);
 
@@ -129,6 +128,11 @@ function delete_mahasiswa($id_mahasiswa)
 {
     global $db;
 
+    // query unlink foto
+    $foto = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa")[0];
+    unlink("assets/img/". $foto['foto']);
+
+    // query delete foto
     $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
 
     mysqli_query($db, $query);
