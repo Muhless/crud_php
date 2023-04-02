@@ -72,7 +72,7 @@ if (isset($_POST['ubah'])) {
 
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
-            <input required type="file" class="form-control" id="foto" name="foto" placeholder="foto" onchange="previewImg()">
+            <input type="file" class="form-control" id="foto" name="foto" placeholder="foto" onchange="previewImg()">
             
             <img src="assets/img/<?php echo $mahasiswa['foto']; ?>" alt="" class="img-thumbnail img-preview mt-3" width="100px">
         </div>
