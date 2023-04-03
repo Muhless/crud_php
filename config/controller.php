@@ -183,3 +183,25 @@ function upload_file()
     move_uploaded_file($tmpname, 'assets/img/' . $namafileBaru);
     return $namafileBaru;
 }
+
+
+// fungsi tambah akun
+function create_akun($post){
+    global $db;
+
+    $nama       = strip_tags($post['nama']);
+    $username   = strip_tags($post['username']);
+    $email      = strip_tags($post['email']);
+    $password   = strip_tags($post['password']);
+    $level      = strip_tags($post['level']);
+
+    $password   = password_hash($password, PASSWORD_DEFAULT);
+
+    // query tambah data
+    $query = "INSERT INTO akun VALUES (null, '$nama', '$username', '$email', '$password', '$level');";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
+}
